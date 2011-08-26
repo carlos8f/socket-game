@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Socket game</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="/css/lib/bootstrap-1.0.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <!-- scripts -->
+    <script type="text/javascript" src="/js/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="/js/lib/jquery-ui-1.8.16.custom.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect('http://localhost:3000/');
+      socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="page"></div>
+
+    <script id="template-stage" type="text/template">
+      [game]
+    </script>
+  </body>
+</html>
