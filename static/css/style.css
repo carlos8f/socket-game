@@ -5,3 +5,33 @@ body {
   background: transparent;
   color: white;
 }
+.grid {
+  width: 801px;
+  height: 501px;
+  background: url(../images/grid.png) left top repeat;
+  margin: 50px auto;
+}
+#stage {
+  width: 800px;
+  height: 500px;
+  position: relative;
+  cursor: pointer;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+.ok {
+  background: rgba(0, 176, 12, 0.3);
+}
+.bad {
+  background: rgba(167, 21, 0, 0.3);
+}
+.dot {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  cursor: pointer;
+  background: url(../images/dot.png) center no-repeat;
+}
