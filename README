@@ -1,1 +1,38 @@
-Work in progress.
+Collaborative music tool
+
+12 columns, 5 rows
+
+columns = chromatic scale
+rows = octaves
+
+
+what instrument?
+
+* lead
+* bass
+* drums
+* chords
+* sample
+
+colors for each
+
+step sequencer below controls
+
+rec/save functionality
+
+rooms/channels?
+
+chat?
+
+quantization?
+
+shuffle?
+
+midi export?
+
+browsing / playlists?
+
+expandable/modular sound sets?
+
+user-created plugins?
+
