@@ -12,7 +12,7 @@
 
   var squares = app.squares = [];
 
-  var tempo = 120;
+  var tempo = 90;
 
   var playInterval = 0;
 
@@ -62,12 +62,13 @@
 
   var playNote = app.playNote = function(note) {
     if (note.sound) {
-      var sound = $('#sound-' + note.sound).get(0);
+      var sound = $('#sound-' + note.id).get(0);
       if (!sound.paused) {
-        sound.pause();
         sound.currentTime = 0.0;
       }
-      sound.play();
+      else {
+        sound.play();
+      }
     }
     squares[note.id].attr({fill: '#030'}).animate({fill: note.color}, 200, '<');
   }
