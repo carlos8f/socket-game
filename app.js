@@ -2,7 +2,8 @@ var express = require('express'),
     app = module.exports = express.createServer(),
     conf = require('./conf.js'),
     _ = require('underscore'),
-    io = require('socket.io').listen(app);
+    io = require('socket.io').listen(app),
+    song = [];
 
 app.configure(function() {
   app.use(app.router);
@@ -15,15 +16,23 @@ app.configure('development', function() {
 app.configure('production', function() {
   app.use(express.errorHandler()); 
 });
+io.configure('development', function() {
+  //io.set('transports', ['xhr-polling']);
+});
 
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/views/index.html');
 });
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+  socket.emit('song', song);
+  socket.on('note', function (note) {
+    song[note.id] = true;
+    socket.broadcast.emit('note', note);
+  });
+  socket.on('note off', function (id) {
+    delete song[id];
+    socket.broadcast.emit('note off', id);
   });
 });
 
