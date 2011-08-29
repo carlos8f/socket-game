@@ -9,4 +9,5 @@ body {
   width: 805px;
   height: 505px;
   margin: 50px auto;
+  cursor: pointer;
 }
